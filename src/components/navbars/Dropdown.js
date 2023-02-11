@@ -11,11 +11,11 @@ function Dropdown(args) {
 
   const data = args.data.list[0];
 
-  const menu = (sec) => {
+  const menu = (menuTemp) => {
     let newSection = []
-    for(const section in sec){
+    for(const section in menuTemp){
       const nombre = section.replace('_',' ')
-      if(!sec[section].length){
+      if(!menuTemp[section].length){
         newSection.push(
           <NavItem key={section + Math.random()}>
             <NavLink>{nombre}</NavLink>
@@ -29,7 +29,7 @@ function Dropdown(args) {
               {nombre}
             </DropdownToggle>
             <DropdownMenu key={section+ Math.random()}>
-              {menu(sec[section][0])}
+              {menu(menuTemp[section][0])}
             </DropdownMenu>
           </UncontrolledDropdown>
         )
